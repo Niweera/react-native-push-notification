@@ -124,6 +124,20 @@ public class RNReceivedMessageHandler {
             dataBundle.putString(entry.getKey(), entry.getValue());
         }
 
+        if (remoteNotification == null){
+            // This is to get a pop up notification even if there is no Notification object in the payload
+            bundle.putString("title", dataBundle.getString("title"));
+            bundle.putString("message", dataBundle.getString("body"));
+            bundle.putString("color", dataBundle.getString("color"));
+            bundle.putString("smallIcon", "ic_notification");
+            bundle.putString("channelId", dataBundle.getString("channel_id"));
+            bundle.putString("visibility", "private");
+            bundle.putString("bigPictureUrl", dataBundle.getString("image"));
+            bundle.putString("largeIconUrl", dataBundle.getString("image"));
+            bundle.putString("actions", dataBundle.getString("actions"));
+            bundle.putBoolean("invokeApp", dataBundle.getBoolean("invokeApp",false));
+        }
+
         bundle.putParcelable("data", dataBundle);
 
         Log.v(LOG_TAG, "onMessageReceived: " + bundle);
