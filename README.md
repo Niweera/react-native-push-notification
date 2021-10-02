@@ -813,3 +813,7 @@ PushNotification.checkPermissions(callback: Function) //Check permissions
 PushNotification.getApplicationIconBadgeNumber(callback: Function) //Get badge number
 ```
 
+## In this version
+
+- Usually the default react-native-push-notification package does not handle FCM Notifications as data messages. In this version it handles data messages as well as the default notification messages.
+
